@@ -92,8 +92,10 @@ fun ReplyHomeScreen(
         )
     )
 
+    val navigationDrawerContentDescription = stringResource(R.string.navigation_drawer)
     if (navigationType == ReplyNavigationType.PERMANENT_NAVIGATION_DRAWER) {
         PermanentNavigationDrawer (
+            modifier = Modifier.testTag(navigationDrawerContentDescription),
             drawerContent = {
                 PermanentDrawerSheet(Modifier.width(dimensionResource(R.dimen.drawer_width))) {
                     NavigationDrawerContent(
@@ -199,6 +201,7 @@ private fun ReplyAppContent(
                         navigationItemContentList = navigationItemContentList,
                         modifier = Modifier
                             .fillMaxWidth()
+                            .testTag(bottomNavigationContentDescription)
                     )
                 }
             }
